@@ -3,7 +3,7 @@ const router = new KoaRouter();
 
 router.get('/user', ctx => {
 	ctx.body = {
-		name: 'test',
+		name: 'jhajajj',
 		age: '30',
 		ahhaa: 'ahahhaah'
 	};
