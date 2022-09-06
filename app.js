@@ -16,6 +16,14 @@ const server = http.createServer(app.callback());
 
 const PORT = process.env.PORT || 4000;
 
-server.listen(PORT, () => {
-	console.log(`Server listening on port ${PORT}`);
-});
+const { connectToDB } = require('./database');
+
+connectToDB()
+	.then(_ => {
+		server.listen(PORT, () => {
+			console.log(`Server listening on port ${PORT}`);
+		});
+	})
+	.catch(err => {
+		console.log(err);
+	});
