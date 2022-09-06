@@ -16,6 +16,7 @@
 		"dotenv": "^16.0.2",
 		"koa": "^2.13.4",
 		"koa-bodyparser": "^4.3.0",
+		"koa-ejs": "^4.3.0",
 		"lint-staged": "^13.0.3",
 		"mongoose": "^6.5.4"
 	},

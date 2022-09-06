@@ -1,13 +1,28 @@
 require('dotenv').config();
+const path = require('path');
 const Koa = require('koa');
 const http = require('http');
 const koaBody = require('koa-bodyparser');
+const render = require('koa-ejs');
 const mainRouter = require('./router');
 
 const app = new Koa();
 
 // bodyparser is used
 app.use(koaBody());
+
+// error handler
+const errorHandler = require('./helper/errorHandle');
+
+app.use(errorHandler);
+
+render(app, {
+	root: path.join(__dirname, 'views'),
+	layout: 'layout',
+	viewExt: 'ejs',
+	cache: false,
+	debug: false
+});
 
 // Router middleware routes all requests to the mainRouter
 app.use(mainRouter);
